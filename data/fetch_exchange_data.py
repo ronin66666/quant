@@ -27,7 +27,7 @@ def get_exchange_data(exchange, symbol, timeframe, since, limit):
 # timeframe: 时间周期
 # csv_file_prefix: CSV文件名前缀
 # return: DataFrame对象，包含以下字段：'timestamp', 'open', 'high', 'low', 'close', 'volume', 'date
-def fetch_data_by_date(exchange, start_date, symbol='BTC/USDT', timeframe='1h', csv_file_prefix=''):
+def fetch_data_by_date(exchange, start_date, symbol='BTC/USDT', timeframe='1h', csv_file_prefix='./storage/'):
     # 将输入的日期转换为datetime对象
     start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
 
@@ -45,8 +45,9 @@ def fetch_data_by_date(exchange, start_date, symbol='BTC/USDT', timeframe='1h', 
 # csv_file_prefix: CSV文件名前缀
 # days_ago: 从过去的多少天开始获取数据
 # return: DataFrame对象，包含以下字段：'timestamp', 'open', 'high', 'low', 'close', 'volume', 'date
-def fetch_and_save_data(exchange, symbol='BTC/USDT', timeframe='1h', csv_file_prefix='', days_ago=30):
+def fetch_and_save_data(exchange, symbol='BTC/USDT', timeframe='1h', csv_file_prefix='./storage/', days_ago=30):
     csv_file = f'{csv_file_prefix}{symbol.replace("/", "_")}_{timeframe}_data.csv'
+    print("CSV文件路径为：", csv_file)
 
     if os.path.exists(csv_file):
         # 如果CSV文件已经存在，则从CSV中加载数据

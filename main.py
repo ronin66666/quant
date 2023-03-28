@@ -12,7 +12,7 @@ exchange = ccxt.binance({
 
 # 获取历史数据
 # data = fetch_exchange_data.fetch_and_save_data(exchange, symbol='BTC/USDT', timeframe='15m', days_ago=10)
-data = fetch_exchange_data.fetch_data_by_date(exchange, start_date='2021-01-01',  symbol='BTC/USDT', timeframe='1h')
+data = fetch_exchange_data.fetch_data_by_date(exchange, start_date='2021-01-01',  symbol='BTC/USDT', timeframe='5m')
 # 输出数据
 print(data.head(5))
 
